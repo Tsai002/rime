@@ -1,0 +1,260 @@
+__build_info:
+  rime_version: 1.8.5
+chord_composer:
+  algebra:
+    - "xform/\\{Control_L\\}/:/"
+    - "xform/\\{Alt_L\\}/:/"
+    - "xform/\\{Shift_L\\}/+/"
+    - "xlit|gtbfrvdecswxaqzhynjum ki,lo.p;'|gtpzdbclfsczHXXRRRiuVaNIUeoEXSQ|"
+    - "xform|^U$|,|"
+    - "xform|^E$|.|"
+    - "xform|^[+]U$|<|"
+    - "xform|^[+]E$|>|"
+    - "xform/^[HX]S$|^S[XR]$/;/"
+    - "xlit|S|h|"
+    - "xform/^[HX]Q$|^Q[XR]$/'/"
+    - "xlit|Q|h|"
+    - "xlit|:+|hh|"
+    - "xform/^a$/ /"
+    - "xform/^ae$/a/"
+    - "xform/^R$/er/"
+    - "xform/[XR]+//"
+    - "xform/Hh?/h/"
+    - "xform/^bh/p/"
+    - "xform/^dh/t/"
+    - "xform/^gh/k/"
+    - "xform/^bf/m/"
+    - "xform/^dl/n/"
+    - "xform/^zc/r/"
+    - "xform/^b[zcsh]+/p/"
+    - "xform/^d[zcsh]+/t/"
+    - "xform/^g[zcsh]+/k/"
+    - "xform/^[zr][sh]+/zh/"
+    - "xform/^csh/ch/"
+    - "xform/^cs/sh/"
+    - "xform/^lc/ch/"
+    - "xform/^fz/zh/"
+    - "xform/([^zcs])h/\\1/"
+    - "xform/^[gz]([iV])/j$1/"
+    - "xform/^[kc]([iV])/q$1/"
+    - "xform/^[hs]([iV])/x$1/"
+    - "xform/(ua?)Io$/$1Ne/"
+    - "xform/aI$/ai/"
+    - "xform/I[oe]$/ei/"
+    - "xform/uI$/uei/"
+    - "xform/^gI$/ji/"
+    - "xform/^kI$/qi/"
+    - "xform/^hI$/xi/"
+    - "xform/I$/i/"
+    - "xform/VUE$/VNe/"
+    - "xform/V(a?)U$/i$1U/"
+    - "xform/aU$/ao/"
+    - "xform/UE?$/ou/"
+    - "xform/aN?e$/ang/"
+    - "xform/([iuV])Ne$/$1ng/"
+    - "xform/Ne$/eng/"
+    - "xform/^ung$/weng/"
+    - "xform/ung$/ong/"
+    - "xform/Vng$/iong/"
+    - "xform/([aiuV])N$/$1n/"
+    - "xform/N$/en/"
+    - "xform/^un$/wen/"
+    - "xform/^i(ng?)$/yi$1/"
+    - "xform/^i$/yi/"
+    - "xform/^i/y/"
+    - "xform/^u$/wu/"
+    - "xform/^u/w/"
+    - "xform/^V/yu/"
+    - "xform/^([jqx])V/$1u/"
+    - "xform/^([zcsr]h?)i([aoe])/$1$2/"
+    - "xform/^([zcsr]h?)i(ng?)$/$1e$2/"
+    - "xform/iou$/iu/"
+    - "xform/uei$/ui/"
+    - "xlit/VE/ve/"
+    - "xform/^([bpf])$/$1u/"
+    - "xform/^([mdtnlgkh])$/$1e/"
+    - "xform/^([zcsr]h?)$/$1i/"
+  alphabet: "gtbfrvdecswxaqzhynjum ki,lo.p"
+  output_format:
+    - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)$/$1$2'/"
+    - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)$/$1$2'/"
+    - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)$/$1$2'/"
+    - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)$/$1$2'/"
+    - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
+    - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
+    - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)$/$1$2'/"
+    - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)$/$1'/"
+    - "erase/^([A-Za-z]+)$/"
+  prompt_format:
+    - "xform/^(.*)$/[$1]/"
+editor:
+  bindings:
+    BackSpace: back_syllable
+engine:
+  filters:
+    - simplifier
+    - uniquifier
+  processors:
+    - ascii_composer
+    - recognizer
+    - chord_composer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+key_binder:
+  bindings:
+    - {accept: "Control+p", send: Up, when: composing}
+    - {accept: "Control+n", send: Down, when: composing}
+    - {accept: "Control+b", send: Left, when: composing}
+    - {accept: "Control+f", send: Right, when: composing}
+    - {accept: "Control+a", send: Home, when: composing}
+    - {accept: "Control+e", send: End, when: composing}
+    - {accept: "Control+d", send: Delete, when: composing}
+    - {accept: "Control+k", send: "Shift+Delete", when: composing}
+    - {accept: "Control+h", send: BackSpace, when: composing}
+    - {accept: "Control+g", send: Escape, when: composing}
+    - {accept: "Control+bracketleft", send: Escape, when: composing}
+    - {accept: "Control+y", send: Page_Up, when: composing}
+    - {accept: "Alt+v", send: Page_Up, when: composing}
+    - {accept: "Control+v", send: Page_Down, when: composing}
+    - {accept: ISO_Left_Tab, send: "Shift+Left", when: composing}
+    - {accept: "Shift+Tab", send: "Shift+Left", when: composing}
+    - {accept: Tab, send: "Shift+Right", when: composing}
+    - {accept: minus, send: Page_Up, when: has_menu}
+    - {accept: equal, send: Page_Down, when: has_menu}
+    - {accept: comma, send: Page_Up, when: paging}
+    - {accept: period, send: Page_Down, when: has_menu}
+    - {accept: "Control+Shift+1", select: .next, when: always}
+    - {accept: "Control+Shift+2", toggle: ascii_mode, when: always}
+    - {accept: "Control+Shift+3", toggle: full_shape, when: always}
+    - {accept: "Control+Shift+4", toggle: simplification, when: always}
+    - {accept: "Control+Shift+5", toggle: extended_charset, when: always}
+    - {accept: "Control+Shift+exclam", select: .next, when: always}
+    - {accept: "Control+Shift+at", toggle: ascii_mode, when: always}
+    - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
+    - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
+    - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
+  import_preset: default
+menu:
+  page_size: 5
+punctuator:
+  full_shape:
+    " ": {commit: "　"}
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": ["＃", "⌘"]
+    "$": ["￥", "$", "€", "£", "¥", "¢", "¤"]
+    "%": ["％", "°", "℃"]
+    "&": "＆"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["＊", "·", "・", "×", "※", "❂"]
+    "+": "＋"
+    ",": {commit: "，"}
+    "-": "－"
+    .: {commit: "。"}
+    "/": ["／", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": ["《", "〈", "«", "‹"]
+    "=": "＝"
+    ">": ["》", "〉", "»", "›"]
+    "?": {commit: "？"}
+    "@": ["＠", "☯"]
+    "[": ["「", "【", "〔", "［"]
+    "\\": ["、", "＼"]
+    "]": ["」", "】", "〕", "］"]
+    "^": {commit: "……"}
+    _: "——"
+    "`": "｀"
+    "{": ["『", "〖", "｛"]
+    "|": ["·", "｜", "§", "¦"]
+    "}": ["』", "〗", "｝"]
+    "~": "～"
+  half_shape:
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "#"
+    "$": ["￥", "$", "€", "£", "¥", "¢", "¤"]
+    "%": ["%", "％", "°", "℃"]
+    "&": "&"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["*", "＊", "·", "・", "×", "※", "❂"]
+    "+": "+"
+    ",": {commit: "，"}
+    "-": "-"
+    .: {commit: "。"}
+    "/": ["、", "/", "／", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": ["《", "〈", "«", "‹"]
+    "=": "="
+    ">": ["》", "〉", "»", "›"]
+    "?": {commit: "？"}
+    "@": "@"
+    "[": ["「", "【", "〔", "［"]
+    "\\": ["、", "\\", "＼"]
+    "]": ["」", "】", "〕", "］"]
+    "^": {commit: "……"}
+    _: "——"
+    "`": "`"
+    "{": ["『", "〖", "｛"]
+    "|": ["·", "|", "｜", "§", "¦"]
+    "}": ["』", "〗", "｝"]
+    "~": ["~", "～"]
+  import_preset: default
+recognizer:
+  import_preset: default
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+schema:
+  author:
+    - "居戎氏 <chen.sst@gmail.com>"
+  description: |
+    並擊輸入拼音。
+    本式佈局亦稱「鍵盤控式」，專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
+
+  name: "宮保拼音·八指禪"
+  schema_id: combo_pinyin_8
+  version: 2.0
+speller:
+  algebra:
+    - "xform/^([a-z]+)$/$1'/"
+  alphabet: "zyxwvutsrqponmlkjihgfedcba'"
+  delimiter: " "
+  initials: zyxwvutsrqponmlkjihgfedcba
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["中文", "西文"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: simplification
+    states: ["漢字", "汉字"]
+  - name: ascii_punct
+    states: ["。，", "．，"]
+translator:
+  dictionary: luna_pinyin
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+    - "xform/' /'/"
+  prism: combo_pinyin
